@@ -30,7 +30,6 @@ Python-Expert-Basics/
 ├── 04-Asyncio-Concurrency/         ← Asynchronous programming
 ├── 05-Web-Frameworks-FastAPI/      ← Production-ready APIs
 ├── 06-Interactive-Web-Apps-Streamlit/ ← AI Dashboards
-├── 07-Software-Engineering-Best-Practices/ ← CI/CD, Testing, Linting
 ├── 08-Projects/                    ← Full-stack Python projects
 └── 09-Interview-Prep/              ← Internal mechanics & DS/Algo
 ```
