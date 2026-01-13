@@ -30,8 +30,10 @@ Python-Expert-Basics/
 ├── 04-Asyncio-Concurrency/         ← Asynchronous programming
 ├── 05-Web-Frameworks-FastAPI/      ← Production-ready APIs
 ├── 06-Interactive-Web-Apps-Streamlit/ ← AI Dashboards
-├── 08-Projects/                    ← Full-stack Python projects
-└── 09-Interview-Prep/              ← Internal mechanics & DS/Algo
+├── 07-Projects/                    ← Full-stack Python projects
+├── 08-Interview-Prep/              ← Context & Theoretical mechanics
+├── 09-SQL-and-Databases/           ← RDBMS & ORM (SQLAlchemy)
+└── 10-Data-Structures-and-Algorithms/ ← Pythonic DSA & I/O
 ```
 
 ---
@@ -67,18 +69,20 @@ Python-Expert-Basics/
 
 ## 🚀 Projects to Build
 
-1. **AI Model API**: A FastAPI service that serves a machine learning model with background task processing.
-2. **Interactive Data Explorer**: A Streamlit dashboard that analyzes datasets and visualizes trends.
-3. **Async Web Scraper**: A high-performance scraper using Asyncio and Aiohttp.
+See the [Projects](07-Projects/README.md) folder for detailed guides on:
+1. **AI Model API**: A FastAPI service that serves a machine learning model.
+2. **Interactive Data Explorer**: A Streamlit dashboard for visual EDA.
+3. **Async Web Scraper**: A high-performance scraper using Asyncio.
 
 ---
 
 ## 💼 Interview Prep
 
+Detailed theory and coding solutions can be found in the [Interview Prep](08-Interview-Prep/README.md) folder. Key topics include:
 - Difference between `@staticmethod` and `@classmethod`.
-- How does `asyncio` handle I/O-bound tasks vs Multiprocessing for CPU-bound tasks?
-- Explain Method Resolution Order (MRO) in Python.
-- How to optimize a Pandas DataFrame for memory.
+- How `asyncio` handles I/O-bound tasks vs Multiprocessing for CPU-bound tasks.
+- Explaining Method Resolution Order (MRO) in Python.
+- Optimizing Pandas DataFrames for memory.
 
 ---
 
