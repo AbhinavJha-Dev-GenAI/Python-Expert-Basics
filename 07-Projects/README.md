@@ -1,46 +1,30 @@
-# Portfolio-Ready Projects 🚀
+# 07. Python Expert Projects 🛠️🚀
 
-The best way to master Python for AI/ML is by building. This folder contains roadmaps and boilerplate for three major projects that cover the entire stack.
+Hands-on projects to solidify your expert-level Python skills.
 
----
+## Project 1: High-Performance Concurrent Scraper 🕷️🏎️
+*   **Goal**: Build a web scraper that fetches data from 100+ URLs simultaneously without crashing or getting blocked.
+*   **Tech Stack**: Python, `asyncio`, `aiohttp`, `BeautifulSoup`.
+*   **Key Learning**: Managing concurrent HTTP requests, handling timeouts, and efficient parsing.
 
-- [Project 1: AI Model Serving API](Project-1-AI-Model-API.md): FastAPI + ML.
-- [Project 2: Interactive Data Explorer](Project-2-Data-Explorer.md): Streamlit + Pandas.
-- [Project 3: Async Web Scraper](Project-3-Async-Scraper.md): Asyncio + Aiohttp.
+## Project 2: Production Model Inference API (FastAPI) 📡🧠
+*   **Goal**: Create a robust API that serves a pre-trained ML model, including request validation, logging, and error handling.
+*   **Tech Stack**: FastAPI, Pydantic, Scikit-learn/PyTorch.
+*   **Key Learning**: Dependency injection, model serialization (Joblib/Pickle), and Pydantic schemas.
 
----
+## Project 3: Real-time AI Dashboard (Streamlit) 🎈📊
+*   **Goal**: Build an interactive dashboard that allows users to upload a CSV, perform automated EDA, and run multiple ML models to see results instantly.
+*   **Tech Stack**: Streamlit, Pandas, Plotly.
+*   **Key Learning**: Session state management, interactive widgets, and dynamic charting.
 
-## 🕸️ 3. High-Performance Web Scraper (Asyncio + Aiohttp)
-Build a scraper that can fetch data from hundreds of URLs concurrently without blocking.
-
-*   **Key Features**:
-    *   Asynchronous request handling with `aiohttp`.
-    *   Rate limiting to avoid getting blocked.
-    *   Structured data extraction using BeautifulSoupr.
-    *   Saving results to a CSV or JSON file.
-*   **Tech Stack**: Asyncio, Aiohttp, BeautifulSoup4.
-
----
-
-## 📈 Roadmap to Completion
-
-1.  **Boilerplate**: Set up your environment (Poetry/Conda).
-2.  **Core Logic**: Implement the main functionality (Model call, Data processing, Request loop).
-3.  **Refactor**: Apply SOLID principles and OOP where beneficial.
-4.  **Polish**: Add logging, error handling, and documentation.
-5.  **Verify**: Write tests with Pytest to ensure stability.
+## Project 4: Database-Backed Task Manager (SQLAlchemy) 🗄️📜
+*   **Goal**: A CLI tool that manages a local SQLite database using an ORM, allowing you to track your ML experiments or project tasks.
+*   **Tech Stack**: Python, SQLAlchemy, SQLite.
+*   **Key Learning**: Database modeling, CRUD operations (Create, Read, Update, Delete), and ORM benefits.
 
 ---
 
-## 📂 Suggested Folder Structure for Each Project
-```
-project-name/
-├── src/
-│   ├── main.py
-│   ├── utils.py
-│   └── models/
-├── tests/
-├── .env
-├── README.md
-└── requirements.txt
-```
+## 🚀 Getting Started
+1.  **Architecture**: Don't just write code; design a **Folder Structure**. Separate your logic (utils), your data (models), and your interface (api/ui).
+2.  **Environment**: Use **Poetry** or **Conda** to manage your dependencies. Never install global packages for projects.
+3.  **Clean Code**: Run **Black** and **Flake8** on your project to ensure it matches the PEP8 standard used in professional teams.

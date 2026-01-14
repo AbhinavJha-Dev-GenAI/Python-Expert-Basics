@@ -1,62 +1,70 @@
-# Core Python Revisited 🐍
+# 01. Core Python Revisited 🐍💎
 
-Welcome to the internal mechanics of Python! This section focuses on how Python works under the hood, moving beyond simple syntax to understand the "why" and "how".
+Mastering the advanced features of Python that separate a "script writer" from a "software engineer."
 
----
+## 1. Decorators: Function Meta-Programming 🎭
 
-## 🏗️ Internal Mechanics of Functions
+Decorators allow you to "wrap" another function to extend its behavior without permanently modifying it.
+- **Use Case**: Logging, Timing execution, Access control, Caching results.
 
-In Python, functions are **first-class objects**. This means they can be passed as arguments, returned from other functions, and assigned to variables.
-
-- [Functions and Frames](Functions-and-Frames.md): Execution context and stack.
-- [Scoping (LEGB)](Scoping-LEGB.md): Variable resolution rules.
-- [Mutability Mechanics](Mutability-Mechanics.md): Object identity and pitfalls.
-- [Core Features Deep Dive](Core-Features-Deep-Dive.md): Generators, Decorators, and Context Managers.
-
----
-
-## 📊 Data Types: Mutable vs Immutable
-
-Understanding memory management starts with knowing which objects can change.
-
-| Data Type | Mutability | Examples |
-|-----------|------------|----------|
-| `int`, `float`, `bool` | **Immutable** | `x = 5; x = 6` (creates a new object) |
-| `str` | **Immutable** | `s[0] = 'a'` (Raises TypeError) |
-| `tuple` | **Immutable** | Fixed sequence |
-| `list` | **Mutable** | `my_list.append(1)` |
-| `dict` | **Mutable** | `my_dict['key'] = 'value'` |
-| `set` | **Mutable** | `my_set.add(1)` |
-
-> [!IMPORTANT]
-> **Default Arguments Warning**: Never use mutable objects (like `list`) as default arguments in functions. Use `None` instead.
-
----
-
-## 🔑 Advanced Revisit topics
-
-### 1. Comprehensions (List, Dict, Set)
-Fast, readable way to create collections.
 ```python
-squares = [x**2 for x in range(10) if x % 2 == 0]
+import functools
+import time
+
+def timer_decorator(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        start_time = time.perf_counter()
+        result = func(*args, **kwargs)
+        end_time = time.perf_counter()
+        print(f"Finished {func.__name__} in {end_time - start_time:.4f}s")
+        return result
+    return wrapper
 ```
 
-### 2. Args and Kwargs (`*args`, `**kwargs`)
-- `*args`: Collects positional arguments as a tuple.
-- `**kwargs`: Collects keyword arguments as a dictionary.
+---
 
-### 3. Lambdas (Anonymous Functions)
-Small, one-line functions.
+## 2. Generators & Iterators 🔄📦
+
+Generators use the `yield` keyword to produce a sequence of values lazily. They are **memory-efficient** because they don't store the entire list in RAM.
+- **Use Case**: Processing massive datasets (e.g., streaming 100GB of logs).
+
 ```python
-multiply = lambda x, y: x * y
+def log_reader(file_path):
+    with open(file_path) as f:
+        for line in f:
+            if "ERROR" in line:
+                yield line
 ```
-
-### 4. Global vs Nonlocal
-- `global`: Used to modify a variable in the global scope from within a function.
-- `nonlocal`: Used in nested functions to modify a variable in the outer (but non-global) scope.
 
 ---
 
-## 🛠️ Practice Exercises
-1. Implement a function that tracks how many times it has been called using a closure.
-2. Create a list comprehension that filters a list of strings for those containing 'a' and converts them to uppercase.
+## 3. Context Managers (The `with` Statement) 🛡️
+
+Ensures resources (files, DB connections) are properly cleaned up, even if an error occurs.
+- **The Protocol**: Implementing `__enter__` and `__exit__` in a class, or using `@contextmanager`.
+
+---
+
+## 4. `*args` and `**kwargs`: Flexibility 🏗️
+
+- `*args`: Passes a variable number of non-keyword arguments (as a tuple).
+- `**kwargs`: Passes a variable number of keyword arguments (as a dictionary).
+- **In ML**: Crucial for wrapping libraries where you want to pass parameters down to an underlying model (e.g., `model.train(**config)`).
+
+---
+
+## 🛠️ Essential Snippet (Advanced List Comprehensions)
+
+```python
+# Filtering and Mapping in one line
+squared_evens = [x**2 for x in range(10) if x % 2 == 0]
+
+# Dict Comprehensions for mapping IDs
+user_map = {u.id: u.name for u in users if u.is_active}
+```
+
+---
+
+## 📊 Summary
+Core Python mastery is about **Efficiency and Readability**. Tools like decorators and generators reduce boilerplate and prevent your ML pipelines from crashing due to memory issues.

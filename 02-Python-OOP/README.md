@@ -1,71 +1,62 @@
-# Python Object-Oriented Programming (OOP) 🏗️
+# 02. Python OOP (Object-Oriented Programming) 🏛️🧬
 
-Python’s OOP implementation is flexible and powerful. This section covers advanced concepts specific to Python, design patterns, and SOLID principles.
+OOP is the standard for building complex, maintainable AI systems. It allows you to model real-world concepts (Models, Datasets, Pipelines) as "Objects."
 
----
+## 1. Classes & Instances 🏗️
 
-## 🧬 Specifics of Python OOP
-
-- [MRO and Inheritance](MRO-and-Inheritance.md): How Python resolves methods in complex trees.
-- [Abstract Classes and Interfaces](Abstract-Classes-and-Interfaces.md): Enforcing contracts.
-- [SOLID Principles in Python](SOLID-Principles-In-Python.md): Architectural best practices.
-- [Common Design Patterns](Common-Design-Patterns.md): Singleton, Factory, Strategy, etc.
+- **Class**: The blueprint (e.g., `NeuralNetwork`).
+- **Instance**: The specific object in memory (e.g., `my_model = NeuralNetwork()`).
+- **`__init__`**: The constructor method for initializing state.
 
 ---
 
-## 💎 SOLID Principles with Pythonic Examples
+## 2. The 4 Pillars of OOP 🛡️
 
-1.  **S - Single Responsibility**: A class should have one reason to change.
-2.  **O - Open/Closed**: Open for extension, closed for modification (use Inheritance/ABCs).
-3.  **L - Liskov Substitution**: Subtypes must be substitutable for their base types.
-4.  **I - Interface Segregation**: Clients shouldn't depend on methods they don't use (don't create "fat" interfaces).
-5.  **D - Dependency Inversion**: Depend on abstractions, not concretions.
+1.  **Encapsulation**: Hiding internal data and exposing only what is necessary (using `_protected` or `__private` attributes).
+2.  **Inheritance**: Reusing code by creating a sub-class (e.g., `CNN` inherits from `NeuralNetwork`).
+3.  **Polymorphism**: Different classes using the same method name (e.g., both `VisionModel` and `TextModel` having a `.predict()` method).
+4.  **Abstraction**: Hiding complex logic behind simple interfaces.
+
+---
+
+## 3. Dunder (Magic) Methods 🪄
+
+Methods with double-underscores that control how objects behave with standard Python operators.
+- `__str__`: Human-readable string representation.
+- `__len__`: What happens when you call `len(obj)`.
+- `__getitem__`: Allows indexing like `obj[index]` (Used in PyTorch Datasets).
+
+---
+
+## 4. `@classmethod` vs. `@staticmethod` ⚖️
+
+*   **Instance Method**: Takes `self`. Accesses instance-specific data.
+*   **Class Method**: Takes `cls`. Used for "Factory methods" (creating an instance from a file/config).
+*   **Static Method**: Takes no special first argument. Just a utility function that lives inside the class.
+
+---
+
+## 🛠️ Essential Snippet (A Pythonic Dataset Class)
 
 ```python
-# Dependency Inversion Example
-class Logger(ABC):
-    @abstractmethod
-    def log(self, message): pass
+class ImageDataset:
+    def __init__(self, images, labels):
+        self.images = images
+        self.labels = labels
+        
+    def __len__(self):
+        return len(self.images)
+        
+    def __getitem__(self, idx):
+        return self.images[idx], self.labels[idx]
 
-class ConsoleLogger(Logger):
-    def log(self, message): print(f"Logging: {message}")
-
-class App:
-    def __init__(self, logger: Logger): # Depends on abstraction
-        self.logger = logger
+# Usage
+dataset = ImageDataset(imgs, lbls)
+print(f"Dataset Size: {len(dataset)}")
+img, lbl = dataset[0]
 ```
 
 ---
 
-## 🎨 Frequently Used Design Patterns
-
-### 1. Singleton (Ensure only one instance)
-```python
-class Singleton:
-    _instance = None
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super().__new__(cls)
-        return cls._instance
-```
-
-### 2. Factory Pattern (Decouple creation logic)
-```python
-class Dog:
-    def speak(self): return "Woof!"
-class Cat:
-    def speak(self): return "Meow!"
-
-def get_pet(pet="dog"):
-    pets = dict(dog=Dog(), cat=Cat())
-    return pets[pet]
-```
-
-### 3. Decorator Pattern
-Using `@property`, `@classmethod`, and custom decorators to extend behavior.
-
----
-
-## 🛠️ Practice
-- Implement a `PaymentGateWay` ABC and create `Paypal` and `Stripe` implementations.
-- Verify MRO in a diamond inheritance scenario.
+## 🧩 Pro-Tip: Composition over Inheritance
+In ML, instead of deep inheritance trees, use **Composition**. Give your `Model` class an `Optimizer` object and a `LossFunction` object. This makes your code much more flexible and easier to test.

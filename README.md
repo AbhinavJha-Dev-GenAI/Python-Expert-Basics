@@ -18,6 +18,21 @@ This folder is dedicated to mastering Python at a professional software engineer
 - ✅ **UI/UX for AI**: Rapidly building AI dashboards with **Streamlit**.
 - ✅ **Software Engineering**: Pytest, Logging, Black, and Environment Management.
 
+## 📂 Detailed Guides
+
+Explore the following deep-dives into modern Python engineering:
+
+1.  **[Core Python Revisited](./01-Core-Python-Revisited/README.md)** - Decorators, Generators, Context Managers.
+2.  **[Python OOP](./02-Python-OOP/README.md)** - Inheritance, Polymorphism, Dunder Methods.
+3.  **[Major Libraries](./03-Major-Libraries/README.md)** - NumPy (Vectorization) & Pandas (Dataframes).
+4.  **[Asyncio & Concurrency](./04-Asyncio-Concurrency/README.md)** - GIL, Multithreading vs Multiprocessing.
+5.  **[FastAPI Web Framework](./05-Web-Frameworks-FastAPI/README.md)** - Building high-performance AI APIs.
+6.  **[Streamlit Dashboards](./06-Interactive-Web-Apps-Streamlit/README.md)** - Interactive data apps in minutes.
+7.  **[Expert Projects](./07-Projects/README.md)** - Hands-on engineering challenges.
+8.  **[Interview Prep](./08-Interview-Prep/README.md)** - Technical and architecture questions.
+9.  **[SQL & Databases](./09-SQL-and-Databases/README.md)** - Relational data and ORMs for AI.
+10. **[DSA for ML](./10-Data-Structures-and-Algorithms/README.md)** - Complexity analysis and Pythonic structures.
+
 ---
 
 ## 📂 Folder Structure
